@@ -29,7 +29,7 @@ public class OrderController {
 	private OrderService orderService;
 	
 	/*
-	 * Update order for single (Mono) order Id
+	 * Update order for single (Mono) order Id=> POST: http://localhost:8080/orders
 	 */
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
@@ -38,7 +38,7 @@ public class OrderController {
 	}
 	
 	/*
-	 * Update order by Id for single (Mono)
+	 * Update order by Id for single (Mono) PUT: http://localhost:8080/orders/{orderId}
 	 */
 	@PutMapping("/{orderId}")
 	public Mono<ResponseEntity<Order>> updateOrder(@PathVariable Integer orderId, @RequestBody Order order) {
@@ -47,7 +47,7 @@ public class OrderController {
 	}
 
 	/*
-	 * Delete order by Id for single (Mono)
+	 * Delete order by Id for single (Mono) DELETE: http://localhost:8080/orders/{orderId}
 	 */
 	
 	@DeleteMapping("/{orderId}")
@@ -57,7 +57,7 @@ public class OrderController {
 	}
 
 	/*
-	 * Get all orders (Flux - Many)  list
+	 * Get all orders (Flux - Many)  list => GET: http://localhost:8080/orders
 	 */
 	
 	@GetMapping
@@ -66,7 +66,7 @@ public class OrderController {
 	}
 	
 	/*
-	 * Get order by order id for single (Mono)
+	 * Get order by order id for single (Mono) => GET: http://localhost:8080/orders/{orderId}
 	 */
 
 	@GetMapping("/{orderId}")
@@ -76,7 +76,7 @@ public class OrderController {
 	}
 	
 	/*
-	 * Get orders (Flux) by quantity
+	 * Get orders (Flux) by quantity => GET: http://localhost:8080/orders/qty/{qty}
 	 */
 
 	@GetMapping("/qty/{qty}")
@@ -85,7 +85,7 @@ public class OrderController {
 	}
 
 	/*
-	 * Search orders (Flux) by  order ids
+	 * Search orders (Flux) by  order ids  => POST: http://localhost:8080/orders//search/id
 	 */
 	@PostMapping("/search/id")
 	public Flux<Order> fetchUsersByIds(@RequestBody List<Integer> orderIds) {
